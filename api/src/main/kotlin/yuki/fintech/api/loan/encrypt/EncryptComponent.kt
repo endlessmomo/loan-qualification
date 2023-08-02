@@ -1,5 +1,6 @@
 package yuki.fintech.api.loan.encrypt
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.util.*
@@ -10,13 +11,13 @@ import javax.crypto.spec.SecretKeySpec
 @Component
 class EncryptComponent {
     companion object {
-        @Value("\${crypt.key}")
-        lateinit var secretKey: String
+        private const val secretKey = "askldfjaklsdjfklajsvzxc1asdf1234"
     }
 
     private val encoder = Base64.getEncoder()
     private val decoder = Base64.getDecoder()
     fun encryptString(encryptString: String): String {
+        print(secretKey)
         val encryptedString = cipherPkcs5(Cipher.ENCRYPT_MODE, secretKey).doFinal(encryptString.toByteArray(Charsets.UTF_8))
 
         return String(encoder.encode(encryptedString))
