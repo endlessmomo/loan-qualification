@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.6.0"
-    kotlin("plugin.spring") version "1.6.0" apply false
+    kotlin("plugin.spring") version "1.6.10" apply false
     kotlin("plugin.jpa") version "1.6.0" apply false
 
     id("org.springframework.boot") version "2.6.3" apply false
@@ -14,9 +14,9 @@ repositories {
 }
 
 allprojects {
-    group = "yuki"
+    group = "yuki.fintech"
 
-    repositories{
+    repositories() {
         mavenCentral()
     }
 }
